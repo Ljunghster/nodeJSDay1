@@ -1,29 +1,35 @@
-// let x = 5+5
-// let y = 5-5
-// let z = 5*5
-// let w = 5/5
+// to bring in js (see below)
+// let movies = require('./movies.js')
+// let food = require('./food.js')
+// let songs = require('./songs.js')
+// let games = require('./games.js')
 
-// console.log(x)
-// console.log(y)
-// console.log(z)
-// console.log(w)
+// console.log(movies, food, songs, games)
+// THE CODE ABOVE IS WORKING
 
-const adder = (a, b) => {
-    return a + b
-}
 
-const subtractor = (a, b) => {
-    return a - b
-}
+// fs is for File System
+const fs = require('fs')
 
-const multiplier = (a, b) => {
-    return a * b
-}
+fs.writeFile('some.txt', 'Hello World!', err => {
+    if (err) {
+        console.log(err)
+    }
+})
+// created the some.txt file with the words Hello World
+// write file overwrites anything done in the connected file, in this case some.txt
+fs.appendFile('some.txt', 'Goodbye World', err => {
+    if (err) {
+        console.log(err)
+    }
+})
+// if we remove the writeFile overwrite, every time we run node a new append will add rather than just showing the sole text
+fs.readFile('some.txt', 'utf8', (err, data) => {
+    if (err) {
+        console.log(err)
+    }
+    console.log(data)
+})
+// utf 8 is all basically latin/english character sets
 
-const divider = (a, b) => {
-    return a / b
-}
-console.log(adder(5, 7))
-console.log(subtractor(5, 7))
-console.log(multiplier(5, 7))
-console.log(divider(5, 7))
+// NPM IS A GREAT SOURCE OF NODE PACKAGES
